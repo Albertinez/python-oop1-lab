@@ -1,8 +1,12 @@
+#!/usr/bin/env python3
+
 class Coffee:
     def __init__(self, size, price):
-        self._size = None
+        # Use setter
         self.size = size
-        self._price = price
+
+        # Set price
+        self.price = price
 
     @property
     def size(self):
@@ -10,19 +14,11 @@ class Coffee:
 
     @size.setter
     def size(self, value):
-        if value in ("Small", "Medium", "Large"):
+        if value in ["Small", "Medium", "Large"]:
             self._size = value
         else:
             print("size must be Small, Medium, or Large")
 
-    @property
-    def price(self):
-        return self._price
-
-    @price.setter
-    def price(self, value):
-        self._price = value
-
     def tip(self):
-        print("This coffee is great, here's a tip!")
-        self._price += 1
+        print("This coffee is great, here’s a tip!")
+        self.price += 1
