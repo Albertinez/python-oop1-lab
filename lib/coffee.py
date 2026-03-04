@@ -1,27 +1,28 @@
-class Book:
-    def __init__(self, title, page_count):
-        self._title = title
-        self._page_count = None
-        self.page_count = page_count  # use setter for validation
+class Coffee:
+    def __init__(self, size, price):
+        self._size = None
+        self.size = size
+        self._price = price
 
     @property
-    def title(self):
-        return self._title
+    def size(self):
+        return self._size
 
-    @title.setter
-    def title(self, value):
-        self._title = value
-
-    @property
-    def page_count(self):
-        return self._page_count
-
-    @page_count.setter
-    def page_count(self, value):
-        if not isinstance(value, int):
-            print("page_count must be an integer")
+    @size.setter
+    def size(self, value):
+        if value in ("Small", "Medium", "Large"):
+            self._size = value
         else:
-            self._page_count = value
+            print("size must be Small, Medium, or Large")
 
-    def turn_page(self):
-        print("Flipping the page...wow, you read fast!")
+    @property
+    def price(self):
+        return self._price
+
+    @price.setter
+    def price(self, value):
+        self._price = value
+
+    def tip(self):
+        print("This coffee is great, here's a tip!")
+        self._price += 1
